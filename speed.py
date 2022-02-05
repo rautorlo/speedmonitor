@@ -34,7 +34,7 @@ current_time = current_time.replace(":","-")
 file_name=str(current_date)+"_speedmonitor_"+str(current_time)+".log"
 
 #Preparing OS command
-speedcommand = "speedtest > "+file_path+str(file_name);
+speedcommand = "/usr/bin/speedtest-cli > "+file_path+str(file_name);
 
 #Launching OS command
 res = os.system(speedcommand)
@@ -54,5 +54,6 @@ if(res==0):
     utils.add_to_main_log(""+file_path+"speedmonitor.csv",t)
 else:
     print("TEST FAILED!\n")
+
 
 
