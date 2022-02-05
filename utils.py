@@ -1,31 +1,41 @@
+from os.path import exists
 import csv
 from TestDone import TestDone
 
 # ==========================================
 # ADD TO MAIN LOG
 # ==========================================
-
+# This function add the new test values to
+# the general log file if it exists
+# if the general log does'nt exist
+# the function creates a new one
+# @param genera_file log -> general file log
+# name
+# @param test -> test object to be added
 
 def add_to_main_log(general_file_log, test):
     file_name = str(general_file_log)
-    fields = ["Date","Time","Ping(ms)","Download speed(Mbit/s)", "Upload speed(Mbit/s)"]
+    fields = ['Date','Time','Ping(ms)','Download speed(Mbit/s)', 'Upload speed(Mbit/s)']
     row = [test.date,test.time,test.ping,test.speed_download,test.speed_upload]
-    general_log_reader = ""
     general_log_writer = ""
 
-    try:
-        with open(file_name, 'r') as csvfile:
+    file_exists = exists(general_file_log)
+
+    if(file_exists):
+        #TODO: CHECK IF THE FILE IS CREATED, THEN WRITE OR APPEND...
+        with open(file_name, 'a') as csvfile:
             # creating a csv reader object
-            general_log_reader = csv.reader(csvfile)
-            print("File: "+file_name+" doesn't exist")
-    except:
+            general_log_writer = csv.writer(csvfile)
+            print("File: "+file_name+" exists\n")
+            general_log_writer.writerow(row)
+    else:
         with open(file_name, 'w') as csvfile:
             # creating a csv reader object
             general_log_writer = csv.writer(csvfile)
-            print("File: "+file_name+" exists")
-
-    general_log_writer.writerow(fields)
-    general_log_writer.writerow(row)
+            print("File: "+file_name+" doesn't exist")
+            print("File: "+file_name+" created\n")
+            general_log_writer.writerow(fields)
+            general_log_writer.writerow(row)
 
     return
 
