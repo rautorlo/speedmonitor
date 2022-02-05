@@ -2,7 +2,7 @@
 
 ## Prerequisites
 The script uses speedtest-cli util.
-You can install it **pip**
+You can install it using **pip**
     ```sudo pip install speedtest-cli```
 
 ## Summary
