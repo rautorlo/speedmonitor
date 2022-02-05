@@ -11,6 +11,7 @@ def word_in_file_replace(current_file_log, general_file_log):
     source_file = open(source_file_name,"r+")
     new_file = []
 
+
     for line in source_file:
         if word_i in line:
             line = line.replace(word_i, word_o)

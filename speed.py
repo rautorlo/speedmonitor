@@ -10,6 +10,7 @@ durrent_date = durrent_date.replace("/","-")
 current_time = time.strftime('%X')
 current_time = current_time.replace(":","-")
 
+
 file_name=str(durrent_date)+"_speedmonitor_"+str(current_time)+".log"
 
 speedcommand = "speedtest > "+str(file_name);
