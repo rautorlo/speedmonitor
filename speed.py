@@ -2,7 +2,6 @@ import sys
 import os
 import time
 
-from TestDone import TestDone
 import utils
 
 #Reading from CLI
@@ -18,9 +17,6 @@ if(len(sys.argv)>2):
     utils.print_help()
     exit()
 
-
-#Preparing test
-test = TestDone()
 
 #Preparing date
 current_date = time.strftime('%Y-%m-%d')
