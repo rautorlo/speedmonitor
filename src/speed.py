@@ -47,7 +47,7 @@ if(res==0):
     print("TEST DONE!")
 
     #Joining the last test values in speedmonitor.csv
-    utils.add_to_main_log(""+file_path+"speedmonitor.csv",t)
+    utils.add_to_main_log(""+file_path+current_date+"_speedmonitor.csv",t)
 else:
     print("TEST FAILED!\n")
 
